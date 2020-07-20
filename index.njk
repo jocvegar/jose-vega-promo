@@ -8,17 +8,67 @@ description: Un desarrollador web freelance
 {% block title %}{{title}}{% endblock %}
 
 {% block content %}
-    <div id="1" class="h-screen bg-teal-300 flex flex-col justify-around items-center pt-16 md:flex-row md:justify-around md:items-center">
-        <div class="h-64 w-64">
+    <div id="1" class="h-full bg-teal-300 flex flex-col justify-around items-center pt-16 md:flex-row md:justify-around md:items-center">
+        <div class="h-64 w-64  mt-16 md:flex md:self-end order-last md:order-first flex-shrink-0">
             <img src="https://blush.ly/82Vrt38YN/p" alt="joc">
         </div>
-        <section> 
-            <h1 class="text-white font-semibold text-5xl">HOLA!</h1>
+        <section class="px-4 md:px-32 py-16"> 
+            <h1 class="text-white font-semibold text-2xl text-center md:text-justify">
+                Hola, mi nombre es Jose y soy un desarrollador web. <br>  
+                Alguna otra linea aca
+            </h1>
         </section> 
     </div>
 
+    <div id="2" class="h-auto bg-yellow-300">
+        <h1 class="text-gray-500 font-semibold text-3xl text-center pt-16 pb-8">
+            Acerca de lo que hago
+        </h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 py-16 px-16 md:px-48 text-gray-500 text-xl">
 
-    <div id="2" class="h-screen bg-yellow-300"></div>
+            <div class="flex items-center p-4 hover:text-white">
+                <span class="mr-4">
+                   <i class="fa fa-code" aria-hidden="true"></i>
+                </span>
+                <span>Págnas Web Únicas</span>
+            </div>
+
+            <div class="flex items-center p-4 hover:text-white">
+                <span class="mr-4">
+                   <i class="fa fa-mobile" aria-hidden="true"></i>
+                </span>
+                <span>Diseño Responsivo</span>
+            </div>
+
+            <div class="flex items-center p-4 hover:text-white">
+                <span class="mr-4">
+                   <i class="fa fa-users" aria-hidden="true"></i>
+                </span>
+                <span>UX | UI Intuitvo</span>
+            </div>
+
+            <div class="flex items-center p-4 hover:text-white">
+                <span class="mr-4">
+                   <i class="fa fa-check-square" aria-hidden="true"></i>
+                </span>
+                <span>Monitoreo Continuo</span>
+            </div>
+
+            <div class="flex items-center p-4 hover:text-white">
+                <span class="mr-4">
+                   <i class="fa fa-comments" aria-hidden="true"></i>
+                </span>
+                <span>Comunicación Constante</span>
+            </div>
+
+            <div class="flex items-center p-4 hover:text-white">
+                <span class="mr-4">
+                   <i class="fa fa-credit-card" aria-hidden="true"></i>
+                </span>
+                <span>Precio Accesible</span>
+            </div>
+        </div>
+    </div>
     <div id="3" class="h-screen bg-gray-300"></div>
     <div id="4" class="h-screen bg-red-300"></div>
     <div id="5" class="h-screen bg-blue-300"></div>
