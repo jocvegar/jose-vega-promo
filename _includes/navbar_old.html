@@ -1,0 +1,134 @@
+<nav class="flex fixed w-full items-center justify-between px-6 h-16 bg-white text-gray-700 border-b border-gray-200 z-10"
+    x-data="{ isOpen: false }">
+
+    <div class="flex items-center">
+        <button class="mr-2" aria-label="Open Menu" @click="isOpen = !isOpen">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8">
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+        <img @click="scrollToHome()" src="./images/logo.png" alt="Logo" class="h-auto w-48" />  
+    </div>
+
+    <div class="flex items-center">
+        <div class="hidden md:block md:flex md:justify-between md:bg-transparent">
+            <button @click="scrollTo('2')" class="flex items-center p-3 font-medium mr-2 text-center bg-gray-300 rounded  hover:bg-gray-400 focus:outline-none focus:bg-gray-400">
+                <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" class="w-6 h-6 mr-0">
+                    {# <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path> #}
+                    <path d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>               
+                </svg>
+            </button>
+
+            <button @click="scrollTo('3')" class="flex items-center p-3 font-medium mr-2 text-center bg-gray-300 rounded  hover:bg-gray-400 focus:outline-none focus:bg-gray-400">
+                <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                    {# <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path> #}
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                </svg>
+            </button>
+
+            <button @click="scrollTo('4')" class="flex items-cente p-3 font-medium mr-2 text-center bg-gray-300 rounded  hover:bg-gray-400 focus:outline-none focus:bg-gray-400" >
+                <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 3h5m0 0v5m0-5l-6 6M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"/>
+                </svg>
+            </button>
+
+            <a rel="noopener" href="https://flask-portfolio-jv.herokuapp.com/" target="_blank" title="más ejemplos!" class="flex items-center  px-3 py-3 font-medium mr-2 text-center bg-orange-600 rounded text-white hover:bg-orange-700 focus:outline-none focus:bg-orange-400">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6 mr-1">
+                    <path d="M20.59 12l-3.3-3.3a1 1 0 1 1 1.42-1.4l4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.42-1.4l3.3-3.3zM3.4 12l3.3 3.3a1 1 0 0 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 0 1 1.42 1.4L3.4 12zm7.56 8.24a1 1 0 0 1-1.94-.48l4-16a1 1 0 1 1 1.94.48l-4 16z"/>
+                </svg>
+                <p class="font-semibold">
+                    más
+                </p>
+            </a>
+        </div>
+
+         <div
+            x-transition:enter="ease-out duration-200"
+            x-transition:enter-start="opacity-0 transform"
+            x-transition:enter-end="opacity-100 transform"
+            x-transition:leave="ease-in duration-200"
+            x-transition:leave-start="opacity-100 transform"
+            x-transition:leave-end="opacity-0 transform">
+            <div x-on:keydown.escape="isOpen = false" x-show="isOpen" @click.away="isOpen = false" class="z-10 fixed inset-0 transition-opacity">
+                <div @click="isOpen = false" class="absolute inset-0 bg-black opacity-50" tabindex="0"></div>
+            </div>
+        </div>
+
+        <aside class="transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30"
+            :class="isOpen ? 'translate-x-0' : '-translate-x-full'">
+            
+            <span @click="isOpen = false" class="flex w-full items-center p-4 border-b">
+                <img src="./images/laptop.png" alt="Logo" class="h-auto w-32 mx-auto" />
+            </span>
+
+            <span @click="isOpen = false, scrollTo('1')" class="flex items-center p-4 hover:bg-indigo-300 hover:text-white">
+                <span class="mr-2">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
+                        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                </span>
+                <span>Inicio</span>
+            </span>
+
+            <span @click="isOpen = false, scrollTo('2')" class="flex items-center p-4 hover:bg-indigo-300 hover:text-white">
+                <span class="mr-2">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
+                        {# <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path> #}
+                        <path d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>               
+                    </svg>
+                </span>
+                <span>Acerca</span>
+            </span>
+
+            <span @click="isOpen = false, scrollTo('3')" class="flex items-center p-4 hover:bg-indigo-300 hover:text-white">
+                <span class="mr-2">
+                    <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+                        {# <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path> #}
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                    </svg>
+                </span>
+                <span>Trabajos</span>
+            </span>
+
+            <span @click="isOpen = false, scrollTo('4')" class="flex items-center p-4 hover:bg-indigo-300 hover:text-white"> 
+                <span class="mr-2">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
+                        {# <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path> #}
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 3h5m0 0v5m0-5l-6 6M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"/>
+                    </svg>
+                </span>
+                <span>Contacto</span>
+            </span>
+
+            <div class="fixed bottom-0 w-full">
+                <button class="flex items-center p-4 text-white bg-blue-300 hover:bg-blue-600 w-full">   
+                    <a rel="noopener" class="flex items-center" href="https://www.github.com/jocvegar" target="_blank">
+                        <img src="./images/github.png" alt="joc" class="h-10 mr-3">
+                        <span>/jocvegar</span>
+                    </a>    
+                </button>
+                <a rel="noopener" class="flex items-center p-4 bg-orange-500 text-white" href="#" target="_blank">
+                    <p>
+                        <span class="font-bold">HOLA</span>
+                    </p>
+                </a>
+            </div>
+        </aside>
+    </div>
+</nav>
+
+<script>
+    function scrollTo(element) {
+        document.getElementById(element).scrollIntoView({
+            behavior: "smooth",
+        });
+    }
+
+    function scrollToHome() {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+        });
+    }
+</script>
