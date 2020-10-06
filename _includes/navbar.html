@@ -1,11 +1,17 @@
-<nav id="header" class="fixed w-full z-30 top-0 text-white" x-data="{ isOpen: false }">
+<nav id="header" 
+    class="fixed w-full z-30 top-0 text-white" 
+    x-data="{ isOpen: false, hasScrolled: false }"
+    @scroll.window="{hasScrolled = window.scrollY > 10 ? true : false}"
+    :class="{ 'shadow bg-white' : hasScrolled }">
 	<div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
 		<div class="pl-4 flex items-center">
-			<a @click="scrollToHome()" class="toggleColour text-white no-underline hover:no-underline font-semibold text-2xl lg:text-3xl flex"> 
+			<a @click="scrollToHome()" 
+                :class="{ 'bg-white text-gray-800' : hasScrolled }"
+                :class="{ 'text-white' : !hasScrolled }"
+                class="no-underline hover:no-underline font-semibold text-2xl lg:text-3xl flex"> 
                 <img  src="./images/laptop.png" alt="Logo" class="h-auto w-12" />  Jose Vega
 			</a>
 		</div>
-
 		<div class="block lg:hidden pr-4">
 			<button id="nav-toggle" class="flex items-center p-1 text-blue-800 hover:text-blue-900"
                 @click="isOpen = !isOpen">
@@ -15,10 +21,9 @@
                 </svg>
 			</button>
 		</div>
-
-		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto lg:block mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" 
-            id="nav-content"
-            x-bind:class="{ 'hidden ' : !isOpen }">
+		<div class="w-full flex-grow lg:flex lg:items-center bg-white lg:w-auto lg:block mt-2 lg:mt-0 lg:bg-transparent text-black p-4 lg:p-0 z-20" 
+            id="nav-content" :class="{ 'hidden' : !isOpen }"
+            :class="{ 'bg-gray-100' : !hasScrolled }">
 			<ul class="list-reset lg:flex justify-end flex-1 items-center">
 				<li class="mr-3">
 					<a class="inline-block py-2 px-4 text-gray-800 font-semibold no-underline hover:text-gray-600 hover:text-underline cursor-pointer"
@@ -33,8 +38,10 @@
                     @click="scrollTo('section3')">Section 3</a>
 				</li>
 			</ul>
-			<button id="navAction" class="mx-auto lg:mx-0 bg-white text-gray-800 font-semibold rounded mt-4 lg:mt-0 lg:mr-2 py-2 px-4 shadow opacity-75"
-                 @click="scrollTo('section4')">
+			<button id="navAction" class="mx-auto lg:mx-0 bg-gray-300 font-semibold rounded mt-4 lg:mt-0 lg:mr-2 py-2 px-4 shadow opacity-75"
+                @click="scrollTo('section4')"
+                :class="{'gradient text-white': hasScrolled}"
+                :class="{'text-gray-800': !hasScrolled}">
                 Contacto
             </button>
             
