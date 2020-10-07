@@ -16,26 +16,24 @@
 		<link rel="icon" type="image/png" href="./images/favicon.ico"/>
 		{# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /> #}
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 		<script src="/js/alpine.js?v={% version %}"></script>
 		{% block head %}{% endblock %}
 	</head>
-	<body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+	<body class="leading-normal tracking-normal text-white gradient">
 		{# {% include "navbar_old.html" %}   #}
 		{% include "navbar.html" %}  
 		{% block content %}
 			{{ content | safe }}
 		{% endblock %}
-
+		<!-- swiper -->
+		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 		<!-- The core Firebase JS SDK is always required and must be listed first -->
 		<script src="/__/firebase/7.16.0/firebase-app.js"></script>
-
 		<!-- TODO: Add SDKs for Firebase products that you want to use
 		https://firebase.google.com/docs/web/setup#available-libraries -->
 		<script src="/__/firebase/7.16.0/firebase-analytics.js"></script>
-
 		<!-- Initialize Firebase -->
 		<script src="/__/firebase/init.js"></script>
-
 	</body>
 </html>
