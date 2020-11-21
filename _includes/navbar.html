@@ -31,11 +31,11 @@
 				</li>
 				<li class="mr-3">
 					<a class="inline-block py-2 px-4 text-gray-800 font-semibold no-underline hover:text-gray-600 hover:text-underline cursor-pointer"
-                    @click="scrollTo('section2')">Section 2</a>
+                    @click="scrollTo('section2')">Clientes</a>
 				</li>
                 <li class="mr-3">
 					<a class="inline-block py-2 px-4 text-gray-800 font-semibold no-underline hover:text-gray-600 hover:text-underline cursor-pointer"
-                    @click="scrollTo('section3')">Clientes</a>
+                    @click="scrollTo('section3')">Section 3</a>
 				</li>
                 <li class="mr-3">
 					<a class="inline-block py-2 px-4 text-gray-800 font-semibold no-underline hover:text-gray-600 hover:text-underline cursor-pointer"
@@ -49,8 +49,7 @@
                 Contacto
             </button>
             
-            <div x-on:keydown.escape="isOpen = false"  @click.away="isOpen = false">
-            </div>
+            <div x-on:keydown.escape="isOpen = false" @click.away="isOpen = false"></div>
 		</div>
 	</div>
 	<hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
@@ -58,9 +57,12 @@
 
 <script>
     function scrollTo(element) {
-        document.getElementById(element).scrollIntoView({
-            behavior: "smooth",
-        });
+        if (element) {
+            document.getElementById(element).scrollIntoView({
+                behavior: "smooth",
+                block: 'start'
+            });
+        } 
     }
 
     function scrollToHome() {
