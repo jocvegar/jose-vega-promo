@@ -341,7 +341,7 @@ description: Un desarrollador web freelance
 	</g>
 </svg>
 
-<section class="container mx-auto text-center py-6 mb-12"
+<section x-data="form()" class="container mx-auto text-center py-6 mb-12"
     id="section5">
 	<h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
 		Contacto
@@ -355,15 +355,12 @@ description: Un desarrollador web freelance
 			¿Listo para hacer tu aplicación?
 		</div>
 
-		<div class="grid grid-cols-2 gap-4 max-w-2xl m-auto"
-			x-data="{
-				name: '', email: '', message: ''
-			}">
+		<div class="grid grid-cols-2 gap-4 max-w-2xl m-auto">
 			<div class="col-span-2 lg:col-span-1">
 				<input type="text" x-model="name"
 					class="rounded border-solid border-gray-400 border-2 p-3 md:text-xl w-full text-gray-500" placeholder="Nombre *"/>
 			</div>
-			
+
 			<div class="col-span-2 lg:col-span-1">
 				<input type="text" x-model="email"
 					class="rounded border-solid border-gray-400 border-2 p-3 md:text-xl w-full text-gray-500" placeholder="Correo *"/>
@@ -375,7 +372,8 @@ description: Un desarrollador web freelance
 			</div>
 
 			<div class="col-span-2 text-right">
-				<button class="mx-auto bg-blue-500 hover:bg-gray-700 text-white font-bold rounded my-6 py-3 px-6 shadow-lg w-full sm:w-32">
+				<button @click.prevent="submit()" 
+					class="mx-auto bg-blue-500 hover:bg-gray-700 text-white font-bold rounded my-6 py-3 px-6 shadow-lg w-full sm:w-32">
 					Enviar
 				</button>
 			</div>
@@ -448,7 +446,7 @@ description: Un desarrollador web freelance
                 </ul>
             </div>
         </div>
-    </div>
+	</div>
 </footer>
 
 <style>
@@ -457,4 +455,25 @@ description: Un desarrollador web freelance
     }
 </style>
 
+<script>
+	function form() {
+	  const db = firebase.firestore()
+	  return {
+		name: '',
+		email: '',
+		message: '',
+		submit() {
+			db.collection('messages').add({
+				name: this.name,
+				email: this.email,
+				message: this.message,
+			}).then(() => {
+				this.name = ''
+				this.email = ''
+				this.message = ''
+			}).catch(error => console.log("error", error))	
+		}
+	  }
+	}
+  </script>
 {% endblock %}
