@@ -1,75 +1,109 @@
-<nav id="header" 
-    class="fixed w-full z-30 top-0 text-white" 
-    x-data="{ isOpen: false, hasScrolled: false }"
-    @scroll.window="{hasScrolled = window.scrollY > 10 ? true : false}"
-    :class="{ 'shadow bg-white' : hasScrolled }">
-	<div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
-		<div class="pl-4 flex items-center">
-			<a @click="scrollToHome()" 
-                :class="{ 'bg-white text-gray-800' : hasScrolled }"
-                :class="{ 'text-white' : !hasScrolled }"
-                class="no-underline hover:no-underline font-semibold text-2xl lg:text-3xl flex"> 
-                <img  src="./images/laptop.png" alt="Logo" class="h-auto w-12" />  Jose Vega
-			</a>
-		</div>
-		<div class="block lg:hidden pr-4">
-			<button id="nav-toggle" class="flex items-center p-1 text-blue-800 hover:text-blue-900"
-                @click="isOpen = !isOpen">
-				<svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <title>Menu</title>
-                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
-                </svg>
-			</button>
-		</div>
-		<div class="w-full flex-grow lg:flex lg:items-center bg-white lg:w-auto lg:block mt-2 lg:mt-0 lg:bg-transparent text-black p-4 lg:p-0 z-20" 
-            id="nav-content" :class="{ 'hidden' : !isOpen }"
-            :class="{ 'bg-gray-100' : !hasScrolled }">
-			<ul class="list-reset lg:flex justify-end flex-1 items-center">
-				<li class="mr-3">
-					<a class="inline-block py-2 px-4 text-gray-800 font-semibold no-underline hover:text-gray-600 hover:text-underline cursor-pointer"
-                    @click="scrollTo('section1')">Section 1</a>
-				</li>
-				<li class="mr-3">
-					<a class="inline-block py-2 px-4 text-gray-800 font-semibold no-underline hover:text-gray-600 hover:text-underline cursor-pointer"
-                    @click="scrollTo('section2')">Clientes</a>
-				</li>
-                <li class="mr-3">
-					<a class="inline-block py-2 px-4 text-gray-800 font-semibold no-underline hover:text-gray-600 hover:text-underline cursor-pointer"
-                    @click="scrollTo('section3')">Section 3</a>
-				</li>
-                <li class="mr-3">
-					<a class="inline-block py-2 px-4 text-gray-800 font-semibold no-underline hover:text-gray-600 hover:text-underline cursor-pointer"
-                    @click="scrollTo('section4')">Section 4</a>
-				</li>
-			</ul>
-			<button id="navAction" class="mx-auto lg:mx-0 bg-gray-300 font-semibold rounded mt-4 lg:mt-0 lg:mr-2 py-2 px-4 shadow opacity-75"
-                @click="scrollTo('section5')"
-                :class="{'gradient text-white': hasScrolled}"
-                :class="{'text-gray-800': !hasScrolled}">
-                Contacto
-            </button>
-            
-            <div x-on:keydown.escape="isOpen = false" @click.away="isOpen = false"></div>
-		</div>
-	</div>
-	<hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
+<nav
+  id="header"
+  class="fixed w-full z-30 top-0 text-white"
+  x-data="{ isOpen: false, hasScrolled: false }"
+  @scroll.window="{hasScrolled = window.scrollY > 10 ? true : false}"
+  :class="{ 'shadow bg-white' : hasScrolled }"
+>
+  <div
+    class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2"
+  >
+    <div class="pl-4 flex items-center">
+      <a
+        @click="scrollToHome()"
+        :class="{ 'bg-white text-gray-800' : hasScrolled }"
+        :class="{ 'text-white' : !hasScrolled }"
+        class="no-underline hover:no-underline font-semibold text-2xl lg:text-3xl flex"
+      >
+        <img src="./images/laptop.png" alt="Logo" class="h-auto w-12" /> Jose
+        Vega
+      </a>
+    </div>
+    <div class="block lg:hidden pr-4">
+      <button
+        id="nav-toggle"
+        class="flex items-center p-1 text-blue-800 hover:text-blue-900"
+        @click="isOpen = !isOpen"
+      >
+        <svg
+          class="fill-current h-6 w-6"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="w-full flex-grow lg:flex lg:items-center bg-white lg:w-auto lg:block mt-2 lg:mt-0 lg:bg-transparent text-black p-4 lg:p-0 z-20"
+      id="nav-content"
+      :class="{ 'hidden' : !isOpen }"
+      :class="{ 'bg-gray-100' : !hasScrolled }"
+    >
+      <ul class="list-reset lg:flex justify-end flex-1 items-center">
+        <li class="mr-3">
+          <a
+            class="inline-block py-2 px-4 text-gray-800 font-semibold no-underline hover:text-gray-600 hover:text-underline cursor-pointer"
+            @click="scrollTo('section1')"
+            >Acerca</a
+          >
+        </li>
+        <li class="mr-3">
+          <a
+            class="inline-block py-2 px-4 text-gray-800 font-semibold no-underline hover:text-gray-600 hover:text-underline cursor-pointer"
+            @click="scrollTo('section2')"
+            >Clientes</a
+          >
+        </li>
+        <li class="mr-3">
+          <a
+            class="inline-block py-2 px-4 text-gray-800 font-semibold no-underline hover:text-gray-600 hover:text-underline cursor-pointer"
+            @click="scrollTo('section3')"
+            >Ejemplos</a
+          >
+        </li>
+        <li class="mr-3">
+          <a
+            class="inline-block py-2 px-4 text-gray-800 font-semibold no-underline hover:text-gray-600 hover:text-underline cursor-pointer"
+            @click="scrollTo('section4')"
+            >Cotizaciones</a
+          >
+        </li>
+      </ul>
+      <button
+        id="navAction"
+        class="mx-auto lg:mx-0 bg-gray-300 font-semibold rounded mt-4 lg:mt-0 lg:mr-2 py-2 px-4 shadow opacity-75"
+        @click="scrollTo('section5')"
+        :class="{'gradient text-white': hasScrolled}"
+        :class="{'text-gray-800': !hasScrolled}"
+      >
+        Contacto
+      </button>
+
+      <div
+        x-on:keydown.escape="isOpen = false"
+        @click.away="isOpen = false"
+      ></div>
+    </div>
+  </div>
+  <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
 </nav>
 
 <script>
-    function scrollTo(element) {
-        if (element) {
-            document.getElementById(element).scrollIntoView({
-                behavior: "smooth",
-                block: 'start'
-            });
-        } 
+  function scrollTo(element) {
+    if (element) {
+      document.getElementById(element).scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
-
-    function scrollToHome() {
-        window.scroll({
-            top: 0,
-            left: 0,
-            behavior: "smooth",
-        });
-    }
+  }
+  function scrollToHome() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
 </script>
