@@ -1,60 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>
-			{% block title %}Jose Vega{% endblock %}
-		</title>
-		<meta charset="UTF-8"/>
-		{% if description %}
-			<meta name="description" content="{{description}}"/>
-		{% endif %}
-		<meta name="keywords" content="freelancer, web developer, Honduras, web">
-		<meta name="author" content="Jose Vega">
-		<meta http-equiv="x-ua-compatible" content="ie=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
-		<link rel="stylesheet" href="/style.css?v={% version %}"/>
-		<link rel="icon" type="image/png" href="./images/favicon.ico"/>
-		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-		{# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /> #}
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-		<script src="/js/alpine.js?v={% version %}"></script>
-		{% block head %}{% endblock %}
-	</head>
-	<body class="leading-normal tracking-normal text-white gradient">
-		{% include "navbar.html" %}  
-		{% block content %}
-			{{ content | safe }}
-		{% endblock %}
-		<!-- swiper -->
-		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-		<!-- The core Firebase JS SDK is always required and must be listed first -->
-		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+  <head>
+    <title>{% block title %}Jose Vega{% endblock %}</title>
+    <meta charset="UTF-8" />
+    {% if description %}
+    <meta name="description" content="{{ description }}" />
+    {% endif %}
+    <meta name="keywords" content="freelancer, web developer, Honduras, web" />
+    <meta name="author" content="Jose Vega" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+    />
+    <link rel="stylesheet" href="/style.css?v={% version %}" />
+    <link rel="icon" type="image/png" href="./images/favicon.ico" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    {#
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    #}
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <script src="/js/alpine.js?v={% version %}"></script>
+    {% block head %}{% endblock %}
+  </head>
+  <body class="leading-normal tracking-normal text-white gradient">
+    {% include "navbar.html" %} {% block content %}
+    {{ content | safe }}
+    {% endblock %}
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
 
-		<script>
-			// Your web app's Firebase configuration
-			// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-			var firebaseConfig = {
-				apiKey: "AIzaSyCVl1tN2JAEVQu4V3PLo9CT9ooUil3flgA",
-				authDomain: "josevega-portfolio.firebaseapp.com",
-				databaseURL: "https://josevega-portfolio.firebaseio.com",
-				projectId: "josevega-portfolio",
-				storageBucket: "josevega-portfolio.appspot.com",
-				messagingSenderId: "925513883455",
-				appId: "1:925513883455:web:aafc3233be071f672bbd8a",
-				measurementId: "G-N60YHHXDVL"
-			};
-			// Initialize Firebase
-			firebase.initializeApp(firebaseConfig);
-			firebase.analytics();
-		</script>
-		
-		<!-- AOS -->
-		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-		<script>
-			AOS.init();
-		</script>
-	</body>
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyCVl1tN2JAEVQu4V3PLo9CT9ooUil3flgA",
+        authDomain: "josevega-portfolio.firebaseapp.com",
+        databaseURL: "https://josevega-portfolio.firebaseio.com",
+        projectId: "josevega-portfolio",
+        storageBucket: "josevega-portfolio.appspot.com",
+        messagingSenderId: "925513883455",
+        appId: "1:925513883455:web:aafc3233be071f672bbd8a",
+        measurementId: "G-N60YHHXDVL",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
 </html>
