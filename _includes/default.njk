@@ -35,7 +35,9 @@
     <script src="/js/alpine.js?v={% version %}"></script>
     {% block head %}{% endblock %}
   </head>
-  <body class="leading-normal tracking-normal text-white gradient">
+  <body
+    class="leading-normal tracking-normal text-white gradient overflow-x-hidden"
+  >
     {% include "navbar.html" %} {% block content %}
     {{ content | safe }}
     {% endblock %}
