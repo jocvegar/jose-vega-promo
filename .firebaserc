@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "josevega-portfolio"
+  },
+  "targets": {
+    "josevega-portfolio": {
+      "hosting": {
+        "heka": [
+          "hekahn"
+        ]
+      }
+    }
   }
 }
