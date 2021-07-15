@@ -69,7 +69,9 @@
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      AOS.init();
+      AOS.init({
+        disable: "mobile", // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      });
     </script>
   </body>
 </html>
